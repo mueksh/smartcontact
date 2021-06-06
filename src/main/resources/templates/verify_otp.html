@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>this is custom login pages</title>
+</head>
+
+<body>
+<section>
+  <div id="login">
+       
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                  <div id="login-column" class="col-md-6">
+                    <div id="login-box" style="height: 200px;" class="col-md-12">
+                        
+                        <!-- email form-->
+                        
+                        <div class="alert alert-success m-3" role="alert">
+                        We have send OTP to your email..
+                        
+                        </div>
+                        
+                        
+                          <!-- message box-->
+                    <div th:if="${session.message}" class="container">
+                    
+                    <div  class="alert alert-danger my-2 text-center" role="alert">
+                    
+                    <span th:text="${session.message}"></span>
+                    
+                    </div>
+                    
+                    <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+                    
+                    
+                    
+                    </div>
+                        
+                        
+                        
+                        
+                        
+                        <form method="post" action="" th:action="@{/verify-otp}">
+                        
+                        <div class="container form-group">
+                        
+                        <input name="otp" required="required" type="text" placeholder="Enter OTP here" class="form-control mr-2" /> 
+                        </div>                       
+                        <div class="container mt-2 text-center">
+                        
+                        <button class="btn btn-success">Verify</button>
+                        
+                        
+                         
+                        </div>
+                        
+                        </div>
+                        
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+
+
+</body>
+
+</html>
+ 

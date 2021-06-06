@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+th:replace="normal/base::layout(~{::section})">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>this is about page</title>
+</head>
+
+<body>
+<section>
+<div class="continer">
+
+<div class="row">
+
+<div class="col-md-12">
+<div style="background: #111;" class="card">
+
+
+<div class="card-body">
+<h3>Change Password</h3>
+
+<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert alert-primary" role="alert">
+                       <p th:text="${session.message.content}"></p>
+                       
+                       <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+                    </div>
+
+<form th:action="@{/user/change-password}" class="" method="post">
+
+                       
+<!--old password field-->
+
+<div class="form-group mt-2">
+
+<input name="oldPassword" type="password" class="form-control" placeholder="Enter Old Password">
+
+</div>
+
+<!--new password field-->
+
+
+<div class="form-group mt-2">
+
+<input name="newPassword" type="password" class="form-control" placeholder="Enter New Password">
+
+</div>
+
+<div class="container text-center">
+
+<button type="submit" class="btn btn-success mt-2">Change</button>
+<button type="reset" class="btn btn-warning mt-2">Rest</button>
+
+</div>
+
+</form>
+
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+</div>
+   
+   <script>
+   $(document).ready(()=>{
+	
+$(".item").removeClass("active");
+$("#settings-link").addClass("active");
+});   
+   
+   </script>
+</section>
+</body>
+
+</html>
+ 

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+th:replace="normal/base::layout(~{::section})">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>this is about page</title>
+</head>
+
+<body>
+<section>
+    
+  <div class="card mt-2 text-danger">
+    <h1 class="mt-2 text-success">___Your_Profile___</h1>
+   
+   <div class="card-body" >
+    <div class="container text-center mt-2">
+    
+     <img src="" style="height: 200px; width: 200px;" class="my_profile_picture" th:src="@{'/img/'+${user.imageUrl}}"/>
+ <hr>
+   <h1><span>User Id :-<span th:text="${user.id}"></span></span></h1>
+   
+    <h1 th:text="${user.name}"></h1>
+    
+     <h2 th:text="${user.email}"></h2>
+     <h2 th:text="${user.role}"></h2>
+    <span>Contact Active :-<span th:text="${user.enabled}"></span></span>
+    <h1></h1>
+    <span>About :-<span th:text="${user.about}"></span></span>
+    
+   </div>
+   
+   
+  
+</div>
+
+    </div>
+    
+
+<style>
+
+/*profile card */
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: auto;
+  text-align: center; 
+  background: #111;
+  height: 600px;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+</style>
+    
+</section>
+</body>
+
+</html>
+ 

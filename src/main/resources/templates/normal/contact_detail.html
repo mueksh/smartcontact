@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+th:replace="normal/base::layout(~{::section})">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>this is about page</title>
+</head>
+
+<body>
+<section>
+    <div class="card mt-2 text-danger" th:if="${contact}">
+    <h1 class="mt-2 text-success">Contact Detail</h1>
+    <hr>
+    <div class="card-body" >
+    <div class="container text-center mt-2">
+  <img src="" style="height: 200px; width: 200px;" class="my_profile_picture" th:src="@{'/img/'+${contact.image}}"/>
+    
+     <h1 th:text="${contact.name}"></h1>
+     <span>(<span th:text="${contact.secondName}"></span>)</span>
+     <h2 th:text="${contact.email}"></h2>
+     <h2 th:text="${contact.phone}"></h2>
+    <span>Contact Work :-<span th:text="${contact.work}"></span></span>
+    <h1></h1>
+    <span>Description :-<span th:utext="${contact.description}"></span></span>
+    
+   </div>
+   <div class="container mt-3">
+   
+   <button  th:onclick="|deleteContact(${contact.cId})|" class="btn btn-danger btn-sm">Delete</button>
+     
+     
+     <h1></h1>
+      <form method="post" th:action="@{'/user/update-contact/'+${contact.cId}}">
+      
+      <button class="btn btn-primary btn-sm">Update</button>
+      </form>
+   
+   </div>
+   
+   
+  
+</div>
+
+    </div>
+    <h1 th:unless="${contact}"> You don't have permission to see this contact......</h1>
+
+<style>
+
+/*profile card */
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: auto;
+  text-align: center; 
+  background: #111;
+  height: 700px;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+
+
+
+
+
+
+</style>
+
+    
+</section>
+</body>
+
+</html>
+ 
